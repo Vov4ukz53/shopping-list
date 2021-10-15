@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista zakupów</title>
+	<link rel="icon" href="">
+	<meta property="og:image" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/shoppingList.css" rel="stylesheet">
+	<script defer src="js/script.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<main class="page">
+		<section class="shoppingList">
+			<div class="shoppingList__body">
+				<h1 class="shoppingList__title">Lista zakupów</h1>
+				<div class="shoppingList__content">
+					<h2 class="shoppingList__subTitle">Dodaj nowy artykuł</h2>
+					<form class="shoppingList__form js-form">
+						<input class="shoppingList__input js-newProduct" type="text" name="product"
+							placeholder="Napisz artykuł!">
+						<button class="shoppingList__button js-addProduct">Dodaj do listy</button>
+					</form>
+				</div>
+				<div class="shoppingList__footer">
+					<h2 class="shoppingList__subTitle">Lista zakupów</h2>
+					<ul class="shoppingList__items js-shopingItems">
+						<li class="shoppingList__item">
+							<button class="shoppingList__add"></button>
+							<span>Lorem ipsum dolor sit.</span>
+							<button class="shoppingList__delete"></button>
+						</li>
+						<li class="shoppingList__item">
+							<button class="shoppingList__add"></button>
+							<span>Lorem ipsum dolor sit.</span>
+							<button class="shoppingList__delete"></button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>
