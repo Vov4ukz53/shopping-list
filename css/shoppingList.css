@@ -94,7 +94,7 @@
 	margin-bottom: 0;
 }
 
-.shoppingList__add {
+.shoppingList__added {
 	width: 30px;
 	height: 30px;
 	padding: 0;
@@ -104,13 +104,13 @@
 	justify-self: center;
 }
 
-@media (max-width:767px){
-	.shoppingList__add{
+@media (max-width: 767px) {
+	.shoppingList__added {
 		justify-self: start;
 	}
 }
 
-.shoppingList__add--done {
+.shoppingList__added--done {
 	background-image: url("../img/arrow.png");
 	background-repeat: no-repeat;
 	background-position: 50% 3px;
@@ -127,8 +127,8 @@
 	justify-self: center;
 }
 
-@media (max-width:767px){
-	.shoppingList__delete{
+@media (max-width: 767px) {
+	.shoppingList__delete {
 		justify-self: end;
 	}
 }
