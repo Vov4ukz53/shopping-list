@@ -1,0 +1,105 @@
+.shoppingList {
+	min-height: 100vh;
+	background-color: rgb(196, 191, 191);
+}
+
+.shoppingList__body {
+	max-width: 1030px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.shoppingList__content{
+	background-color: #fff;
+	margin-bottom: 20px;
+}
+
+.shoppingList__title{
+	padding-top: 50px;
+	margin-top: 0;
+}
+
+.shoppingList__subTitle{
+	margin: 0;
+	padding: 20px;
+	border-bottom: 1px solid #c4bfbf;
+}
+
+.shoppingList__form{
+	display: flex;
+	padding: 20px;
+}
+
+.shoppingList__input{
+	border: 1px solid #c4bfbf;
+	padding: 10px;
+	flex: 1 1 auto;
+	margin-right: 20px;
+}
+
+.shoppingList__input--done{
+	text-decoration: line-through;
+}
+
+.shoppingList__button{
+	background-color: #1283a5;
+	color: #fff;
+	border: none;
+	padding: 0 15px;
+	cursor: pointer;
+	transition: background-color .3s;
+}
+
+.shoppingList__button:hover{
+	background-color: hsl(194, 80%, 31%);
+}
+
+.shoppingList__footer{
+	background-color: #fff;
+}
+
+.shoppingList__items{
+	padding: 20px;
+	margin-bottom: 0;
+}
+
+.shoppingList__item{
+	display: grid;
+	grid-template-columns: 50px 1fr 50px;
+	align-items: center;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #c4bfbf;
+}
+
+.shoppingList__item:last-child{
+	margin-bottom: 0;
+}
+
+.shoppingList__add{
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border: none;
+	background-color: rgb(70, 129, 2);
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.shoppingList__add--done{
+	background-image: url('../img/arrow.png');
+	background-repeat: no-repeat;
+	background-position: 50% 3px;
+}
+
+.shoppingList__delete{
+	background: url('../img/Black_Trash.png') 50% no-repeat;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border: none;
+	background-color: rgb(216, 47, 35);
+	margin: 0 10px;
+	cursor: pointer;
+}
+
