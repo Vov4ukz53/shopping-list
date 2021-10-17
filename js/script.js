@@ -7,18 +7,25 @@
       for (const product of products) {
          htmlString += `
             <li class="shoppingList__item">
-            <button class="shoppingList__added"></button>
+            <button class="shoppingList__added js-buttonMark"></button>
             ${product.content}
-            <button class="shoppingList__delete"></button>
+            <button class="shoppingList__delete js-remove"></button>
             </li>
 			`;
       }
 
       document.querySelector(".js-products").innerHTML = htmlString;
+
+      const removeButtons = document.querySelectorAll(".js-remove");
+
+      removeButtons.forEach((removeButton, index) => {
+         removeButton.addEventListener("click", () => {
+            removeProduct(index);
+         });
+      });
    };
 
    const addNewProduct = (newProduct) => {
-
       products.push({
          content: newProduct,
       });
@@ -26,24 +33,29 @@
       render();
    };
 
+   const removeProduct = (index) => {
+      products.splice(index, 1);
+      render();
+   };
 
+   const onFormSubmit = (event) => {
+      event.preventDefault();
+
+      const newProduct = document.querySelector(".js-newProduct").value.trim();
+
+      if (newProduct === "") {
+         return
+      }
+
+      addNewProduct(newProduct);
+   };
 
    const init = () => {
       render();
 
       const form = document.querySelector(".js-form");
 
-      form.addEventListener("submit", (event) => {
-         event.preventDefault();
-
-         const newProduct = document.querySelector(".js-newProduct").value.trim();
-
-         if (newProduct === "") {
-            return
-         }
-
-         addNewProduct(newProduct);
-      });
+      form.addEventListener("submit", onFormSubmit);
    };
 
    init();
