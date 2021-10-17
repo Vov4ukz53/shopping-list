@@ -8,7 +8,7 @@
 			htmlString += `
             <li class="shoppingList__item${product.done ? " shoppingList__item--done" : ""}">
             <button class="shoppingList__added js-buttonMark${product.done
-				 ? " shoppingList__added--done" : ""}"">
+					? " shoppingList__added--done" : ""}">
 				 </button>
             ${product.content}
             <button class="shoppingList__delete js-remove"></button>
@@ -18,6 +18,10 @@
 
 		document.querySelector(".js-products").innerHTML = htmlString;
 
+		bindEvents();
+	};
+
+	const bindEvents = () => {
 		const removeButtons = document.querySelectorAll(".js-remove");
 
 		removeButtons.forEach((removeButton, index) => {
@@ -51,18 +55,22 @@
 	const toggleDoneProduct = (productIndex) => {
 		products[productIndex].done = !products[productIndex].done;
 		render();
-	}
+	};
 
 	const onFormSubmit = (event) => {
 		event.preventDefault();
 
 		const newProduct = document.querySelector(".js-newProduct").value.trim();
+		const inputField = document.querySelector(".js-newProduct");
+
+		inputField.focus();
 
 		if (newProduct === "") {
 			return
 		}
 
 		addNewProduct(newProduct);
+		inputField.value = "";
 	};
 
 	const init = () => {
