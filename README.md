@@ -1,4 +1,4 @@
-# Shopping-list
+# Shopping List
 ## Demo
 https://vov4ukz53.github.io/shopping-list/
 ## Used Technologies:
