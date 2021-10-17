@@ -1,71 +1,77 @@
 {
-   const products = [];
+	const products = [];
 
-   const render = () => {
-      let htmlString = "";
+	const render = () => {
+		let htmlString = "";
 
-      for (const product of products) {
-         htmlString += `
-            <li class="shoppingList__item">
-            <button class="shoppingList__added js-buttonMark"></button>
+		for (const product of products) {
+			htmlString += `
+            <li class="shoppingList__item${product.done ? " shoppingList__item--done" : ""}">
+            <button class="shoppingList__added js-buttonMark${product.done
+				 ? " shoppingList__added--done" : ""}"">
+				 </button>
             ${product.content}
             <button class="shoppingList__delete js-remove"></button>
             </li>
 			`;
-      }
+		}
 
-      document.querySelector(".js-products").innerHTML = htmlString;
+		document.querySelector(".js-products").innerHTML = htmlString;
 
-      const removeButtons = document.querySelectorAll(".js-remove");
+		const removeButtons = document.querySelectorAll(".js-remove");
 
-      removeButtons.forEach((removeButton, index) => {
-         removeButton.addEventListener("click", () => {
-            removeProduct(index);
-         });
-      });
+		removeButtons.forEach((removeButton, index) => {
+			removeButton.addEventListener("click", () => {
+				removeProduct(index);
+			});
+		});
 
-      const markButtons = document.querySelectorAll(".js-buttonMark");
+		const markButtons = document.querySelectorAll(".js-buttonMark");
 
-      markButtons.forEach((markButton, index) => {
-         markButton.addEventListener("click", () => {
-            markButton.classList.toggle(".shoppingList__added--done");
-            render();
-         });
-      });
-   };
+		markButtons.forEach((markButton, index) => {
+			markButton.addEventListener("click", () => {
+				toggleDoneProduct(index);
+			});
+		});
+	};
 
-   const addNewProduct = (newProduct) => {
-      products.push({
-         content: newProduct,
-      });
+	const addNewProduct = (newProduct) => {
+		products.push({
+			content: newProduct,
+		});
 
-      render();
-   };
+		render();
+	};
 
-   const removeProduct = (index) => {
-      products.splice(index, 1);
-      render();
-   };
+	const removeProduct = (index) => {
+		products.splice(index, 1);
+		render();
+	};
 
-   const onFormSubmit = (event) => {
-      event.preventDefault();
+	const toggleDoneProduct = (productIndex) => {
+		products[productIndex].done = !products[productIndex].done;
+		render();
+	}
 
-      const newProduct = document.querySelector(".js-newProduct").value.trim();
+	const onFormSubmit = (event) => {
+		event.preventDefault();
 
-      if (newProduct === "") {
-         return
-      }
+		const newProduct = document.querySelector(".js-newProduct").value.trim();
 
-      addNewProduct(newProduct);
-   };
+		if (newProduct === "") {
+			return
+		}
 
-   const init = () => {
-      render();
+		addNewProduct(newProduct);
+	};
 
-      const form = document.querySelector(".js-form");
+	const init = () => {
+		render();
 
-      form.addEventListener("submit", onFormSubmit);
-   };
+		const form = document.querySelector(".js-form");
 
-   init();
+		form.addEventListener("submit", onFormSubmit);
+	};
+
+	init();
 }
