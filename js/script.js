@@ -23,6 +23,15 @@
             removeProduct(index);
          });
       });
+
+      const markButtons = document.querySelectorAll(".js-buttonMark");
+
+      markButtons.forEach((markButton, index) => {
+         markButton.addEventListener("click", () => {
+            markButton.classList.toggle(".shoppingList__added--done");
+            render();
+         });
+      });
    };
 
    const addNewProduct = (newProduct) => {
