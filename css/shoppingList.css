@@ -100,7 +100,7 @@
 	margin-bottom: 0;
 }
 
-.shoppingList__added {
+.shoppingList__itemButton {
 	width: 30px;
 	height: 30px;
 	padding: 0;
@@ -111,30 +111,24 @@
 }
 
 @media (max-width: 767px) {
-	.shoppingList__added {
+	.shoppingList__itemButton {
 		justify-self: start;
 	}
 }
 
-.shoppingList__added--done {
+.shoppingList__itemButton--done {
 	background-image: url("../img/arrow.png");
 	background-repeat: no-repeat;
 	background-position: 50% 3px;
 }
 
-.shoppingList__delete {
+.shoppingList__itemButton--delete {
 	background: url("../img/Black_Trash.png") 50% no-repeat;
-	width: 30px;
-	height: 30px;
-	padding: 0;
-	border: none;
 	background-color: rgb(216, 47, 35);
-	cursor: pointer;
-	justify-self: center;
 }
 
 @media (max-width: 767px) {
-	.shoppingList__delete {
+	.shoppingList__itemButton--delete {
 		justify-self: end;
 	}
 }

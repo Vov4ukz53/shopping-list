@@ -7,14 +7,14 @@
 		for (const product of products) {
 			htmlString += `
             <li class="shoppingList__item${product.done ? " shoppingList__item--done" : ""}">
-            <button class="shoppingList__added js-buttonMark${product.done
-					? " shoppingList__added--done" : ""}">
-				 </button>
+            <button class="shoppingList__itemButton js-buttonMark${product.done
+				? " shoppingList__itemButton--done" : ""}">
+				</button>
             ${product.content}
-            <button class="shoppingList__delete js-remove"></button>
+            <button class="shoppingList__itemButton shoppingList__itemButton--delete js-remove"></button>
             </li>
 			`;
-		}
+		}; 
 
 		document.querySelector(".js-products").innerHTML = htmlString;
 
