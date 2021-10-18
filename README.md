@@ -1,6 +1,6 @@
 # Shopping List
 ## Demo
-Here you can see my [demo](https://vov4ukz53.github.io/shopping-list/){:target="_blank"}
+Here you can see my [demo](https://vov4ukz53.github.io/shopping-list/target=_blank)
 ## Used Technologies:
 - HTML5
 - BEM
