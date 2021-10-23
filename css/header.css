@@ -1,0 +1,9 @@
+.header__title {
+	margin-top: 50px;
+}
+
+@media (max-width: 767px) {
+	.header__title {
+		margin-top: 25px;
+	}
+}

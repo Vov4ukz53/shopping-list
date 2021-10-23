@@ -1,77 +1,4 @@
 .shoppingList {
-	min-height: 100vh;
-	background-color: #e5e2e2;
-}
-
-.shoppingList__body {
-	max-width: 1030px;
-	padding: 50px 15px;
-	margin: 0 auto;
-}
-
-@media (max-width: 767px) {
-	.shoppingList__body {
-		padding: 30px 15px;
-	}
-}
-
-.shoppingList__content {
-	background-color: #fff;
-	margin-bottom: 20px;
-}
-
-.shoppingList__title {
-	margin-top: 0;
-}
-
-.shoppingList__subTitle {
-	margin: 0;
-	padding: 20px;
-	border-bottom: 1px solid #e5e2e2;
-}
-
-.shoppingList__form {
-	display: flex;
-	padding: 20px;
-}
-
-@media (max-width: 767px) {
-	.shoppingList__form {
-		flex-direction: column;
-	}
-}
-
-.shoppingList__input {
-	border: 1px solid #e5e2e2;
-	padding: 10px;
-	flex: 1 1 auto;
-	margin-right: 20px;
-}
-
-@media (max-width: 767px) {
-	.shoppingList__input {
-		margin: 0px 0px 15px 0px;
-	}
-}
-
-.shoppingList__button {
-	background-color: #1283a5;
-	color: #fff;
-	border: none;
-	padding: 10px;
-	cursor: pointer;
-	transition: background-color 0.3s;
-}
-
-.shoppingList__button:hover {
-	background-color: hsl(194, 80%, 31%);
-}
-
-.shoppingList__footer {
-	background-color: #fff;
-}
-
-.shoppingList__items {
 	padding: 20px;
 	margin-bottom: 0;
 }
@@ -108,6 +35,11 @@
 	background-color: rgb(70, 129, 2);
 	cursor: pointer;
 	justify-self: center;
+	transition: background-color .3s;
+}
+
+.shoppingList__itemButton:hover{
+	background-color: hsl(88, 97%, 21%);
 }
 
 @media (max-width: 767px) {
@@ -125,6 +57,10 @@
 .shoppingList__itemButton--delete {
 	background: url("../img/Black_Trash.png") 50% no-repeat;
 	background-color: rgb(216, 47, 35);
+}
+
+.shoppingList__itemButton--delete:hover{
+	background-color: hsl(4, 72%, 54%);
 }
 
 @media (max-width: 767px) {

@@ -3,11 +3,19 @@ html {
 	height: 100%;
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
 	box-sizing: inherit;
 }
 
 body {
 	font-family: "Montserrat", sans-serif;
+	background-color: #e5e2e2;
 }
 
+.page {
+	max-width: 1030px;
+	margin: 0 auto;
+	padding: 15px;
+}

@@ -11,6 +11,9 @@
 		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/header.css" rel="stylesheet">
+	<link href="css/section.css" rel="stylesheet">
+	<link href="css/form.css" rel="stylesheet">
 	<link href="css/shoppingList.css" rel="stylesheet">
 	<script defer src="js/script.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -18,22 +21,24 @@
 
 <body>
 	<main class="page">
-		<section class="shoppingList">
-			<div class="shoppingList__body">
-				<h1 class="shoppingList__title">Lista zakupów</h1>
-				<div class="shoppingList__content">
-					<h2 class="shoppingList__subTitle">Dodaj nowy artykuł</h2>
-					<form class="shoppingList__form js-form">
-						<input class="shoppingList__input js-newProduct" required type="text" name="product"
-							placeholder="Napisz artykuł!">
-						<button class="shoppingList__button js-addProduct">Dodaj do listy</button>
-					</form>
-				</div>
-				<div class="shoppingList__footer">
-					<h2 class="shoppingList__subTitle">Lista zakupów</h2>
-					<ul class="shoppingList__items js-products">
-					</ul>
-				</div>
+		<header class="header">
+			<h1 class="header__title">Lista zakupów</h1>
+		</header>
+		<section class="section">
+			<div class="section__body">
+				<h2 class="section__top">Dodaj nowy artykuł</h2>
+				<form class="form js-form">
+					<input class="form__input js-newProduct" autofocus required type="text" name="product"
+						placeholder="Napisz artykuł!">
+					<button class="form__button js-addProduct">Dodaj do listy</button>
+				</form>
+			</div>
+		</section>
+		<section class="section">
+			<div class="section__body">
+				<h2 class="section__top">Lista zakupów</h2>
+				<ul class="shoppingList js-products">
+				</ul>
 			</div>
 		</section>
 	</main>
