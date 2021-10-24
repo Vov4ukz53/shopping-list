@@ -31,12 +31,15 @@
 	transition: background-color 0.3s, transform 0.3s;
 }
 
-.form__button:hover {
-	background-color: hsl(194, 80%, 31%);
-	transform: scale(1.2);
+@media (min-width: 992px) {
+	.form__button:hover {
+		background-color: hsl(194, 80%, 31%);
+		transform: scale(1.2);
+	}
+
+	.form__button:active {
+		background-color: hsl(194, 80%, 27%);
+	}
 }
 
-.form__button:active {
-	background-color: hsl(194, 80%, 27%);
-	transform: scale(1);
-}
+
