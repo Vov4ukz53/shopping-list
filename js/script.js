@@ -2,17 +2,51 @@
 	let products = [];
 	let hideDoneProducts = false;
 
+	const addNewProduct = (newProduct) => {
+		products = [
+			...products,
+			{ content: newProduct },
+		];
+
+		render();
+	};
+
+	const removeProduct = (index) => {
+		products = [
+			...products.slice(0, index),
+			...products.slice(index + 1),
+		];
+
+		render();
+	};
+
+	const toggleDoneProduct = (index) => {
+		products = [
+			...products.slice(0, index),
+			{ ...products[index], done: !products[index].done },
+			...products.slice(index + 1),
+		];
+
+		render();
+	};
+
+	const toggleDoneAllProducts = () => {
+		products = products.map(product => ({ ...product, done: true }));
+		render();
+	};
 
 	const renderProducts = () => {
 		let htmlString = "";
 
 		for (const product of products) {
 			htmlString += `
-            <li class="shoppingList__item${product.done ? " shoppingList__item--done" : ""}">
+            <li class="shoppingList__item${product.done ? " shoppingList__item--" : ""}">
             <button class="shoppingList__itemButton js-buttonMark${product.done
 					? " shoppingList__itemButton--done" : ""}">
 				</button>
-            ${product.content}
+				<span class="shoppingList__itemContent${product.done ? " shoppingList__itemContent--done" : ""}"">
+				${product.content}
+				</span>
             <button class="shoppingList__itemButton shoppingList__itemButton--delete js-remove"></button>
             </li>
 			`;
@@ -21,9 +55,39 @@
 		document.querySelector(".js-products").innerHTML = htmlString;
 	};
 
-	const renderButtons = () => { };
+	const renderButtons = () => {
+		const buttonsProducts = document.querySelector(".js-buttons");
 
-	const bindButtonsEvents = () => { };
+		if (products.length === 0) {
+			return
+		}
+
+		buttonsProducts.innerHTML = `
+			<button class="section__button js-hideDoneProducts">
+				Ukryj ukonczone
+			</button>
+			<button${products.every(({done}) => done) ? " disabled" : ""}
+			 class="section__button js-doneAllProducts">
+				Ukoncz wszystkie
+			</button$>
+		`;
+
+	};
+
+	const bindButtonsEvents = () => {
+		const hideDoneProductsElement = document.querySelector(".js-hideDoneProducts");
+		const doneAllProductsElement = document.querySelector(".js-doneAllProducts");
+
+		if (doneAllProductsElement !== null && hideDoneProductsElement !== null) {
+			doneAllProductsElement.addEventListener("click", () => {
+				toggleDoneAllProducts();
+			});
+
+			hideDoneProductsElement.addEventListener("click", () => {
+				//hideDoneProducts = !hideDoneProducts;
+			});
+		}
+	};
 
 	const render = () => {
 		renderProducts();
@@ -52,29 +116,6 @@
 				toggleDoneProduct(index);
 			});
 		});
-	};
-
-	const addNewProduct = (newProduct) => {
-		products = [
-			...products,
-			{ content: newProduct },
-		];
-
-		render();
-	};
-
-	const removeProduct = (index) => {
-		products = [
-			...products.slice(0, index),
-			...products.slice(index + 1),
-		];
-
-		render();
-	};
-
-	const toggleDoneProduct = (productIndex) => {
-		products[productIndex].done = !products[productIndex].done;
-		render();
 	};
 
 	const onFormSubmit = (event) => {
