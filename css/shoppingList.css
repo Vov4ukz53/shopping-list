@@ -13,8 +13,8 @@
 	word-break: break-word;
 }
 
-.shoppingList__item--done {
-	text-decoration: line-through;
+.shoppingList__item--hidden {
+	display: none;
 }
 
 @media (max-width: 767px) {
@@ -25,6 +25,10 @@
 
 .shoppingList__item:last-child {
 	margin-bottom: 0;
+}
+
+.shoppingList__itemContent--done {
+	text-decoration: line-through;
 }
 
 .shoppingList__itemButton {

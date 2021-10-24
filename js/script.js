@@ -30,8 +30,13 @@
 		render();
 	};
 
-	const toggleDoneAllProducts = () => {
+	const DoneAllProducts = () => {
 		products = products.map(product => ({ ...product, done: true }));
+		render();
+	};
+
+	const toggleHideDoneProducts = () => {
+		hideDoneProducts = !hideDoneProducts;
 		render();
 	};
 
@@ -40,7 +45,7 @@
 
 		for (const product of products) {
 			htmlString += `
-            <li class="shoppingList__item${product.done ? " shoppingList__item--" : ""}">
+            <li class="shoppingList__item${product.done && hideDoneProducts === true ? " shoppingList__item--hidden" : ""}">
             <button class="shoppingList__itemButton js-buttonMark${product.done
 					? " shoppingList__itemButton--done" : ""}">
 				</button>
@@ -64,14 +69,15 @@
 
 		buttonsProducts.innerHTML = `
 			<button class="section__button js-hideDoneProducts">
-				Ukryj ukonczone
+				${products.some(({ done }) => done) && hideDoneProducts === true
+					? "Pokaż ukończone"
+					: "Ukryj ukończone"}
 			</button>
-			<button${products.every(({done}) => done) ? " disabled" : ""}
-			 class="section__button js-doneAllProducts">
+			<button${products.every(({ done }) => done) ? " disabled" : ""}
+			class="section__button js-doneAllProducts">
 				Ukoncz wszystkie
 			</button$>
 		`;
-
 	};
 
 	const bindButtonsEvents = () => {
@@ -80,11 +86,11 @@
 
 		if (doneAllProductsElement !== null && hideDoneProductsElement !== null) {
 			doneAllProductsElement.addEventListener("click", () => {
-				toggleDoneAllProducts();
+				DoneAllProducts();
 			});
 
 			hideDoneProductsElement.addEventListener("click", () => {
-				//hideDoneProducts = !hideDoneProducts;
+				toggleHideDoneProducts();
 			});
 		}
 	};
