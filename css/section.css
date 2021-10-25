@@ -4,52 +4,56 @@
 	box-shadow: 0px 0px 3px rgb(170, 157, 157);
 }
 
-.section__body{
+.section__body {
 	margin: 15px 0px;
 }
 
-.section__top{
-	margin: 0;
+.section__top {
 	padding: 20px;
 	border-bottom: 1px solid #e5e2e2;
 }
 
-.section__top--body{
+.section__top--body {
 	display: grid;
 	align-items: center;
 	grid-template-columns: 1fr auto;
 }
 
-@media (max-width:767px){
-	.section__top--body{
+@media (max-width: 767px) {
+	.section__top--body {
 		grid-template-columns: 1fr;
 	}
 }
 
-.section__title{
+.section__title {
 	margin: 0;
 }
 
-.section__buttons{
+.section__buttons {
 	display: grid;
 	grid-template-columns: auto auto;
 	grid-gap: 10px;
 }
 
-@media (max-width:767px){
-	.section__buttons{
+@media (max-width: 767px) {
+	.section__buttons {
 		grid-template-columns: 1fr;
-		margin-top: 15px;
 	}
 }
 
-.section__button{
+.section__button {
 	cursor: pointer;
 	border: none;
 	background: transparent;
 	color: #1283a5;
 }
 
-.section__button:disabled{
+@media (max-width:767px){
+	.section__button:first-child{
+		margin-top: 15px;
+	}
+}
+
+.section__button:disabled {
 	color: rgb(184, 180, 180);
 }
