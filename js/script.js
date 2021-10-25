@@ -30,7 +30,7 @@
 		render();
 	};
 
-	const DoneAllProducts = () => {
+	const doneAllProducts = () => {
 		products = products.map(product => ({ ...product, done: true }));
 		render();
 	};
@@ -70,29 +70,14 @@
 		buttonsProducts.innerHTML = `
 			<button class="section__button js-hideDoneProducts">
 				${products.some(({ done }) => done) && hideDoneProducts === true
-					? "Pokaż ukończone"
-					: "Ukryj ukończone"}
+				? "Pokaż ukończone"
+				: "Ukryj ukończone"}
 			</button>
 			<button${products.every(({ done }) => done) ? " disabled" : ""}
 			class="section__button js-doneAllProducts">
 				Ukoncz wszystkie
 			</button$>
 		`;
-	};
-
-	const bindButtonsEvents = () => {
-		const hideDoneProductsElement = document.querySelector(".js-hideDoneProducts");
-		const doneAllProductsElement = document.querySelector(".js-doneAllProducts");
-
-		if (doneAllProductsElement !== null && hideDoneProductsElement !== null) {
-			doneAllProductsElement.addEventListener("click", () => {
-				DoneAllProducts();
-			});
-
-			hideDoneProductsElement.addEventListener("click", () => {
-				toggleHideDoneProducts();
-			});
-		}
 	};
 
 	const render = () => {
@@ -122,6 +107,21 @@
 				toggleDoneProduct(index);
 			});
 		});
+	};
+
+	const bindButtonsEvents = () => {
+		const hideDoneProductsElement = document.querySelector(".js-hideDoneProducts");
+		const doneAllProductsElement = document.querySelector(".js-doneAllProducts");
+
+		if (doneAllProductsElement !== null && hideDoneProductsElement !== null) {
+			doneAllProductsElement.addEventListener("click", () => {
+				doneAllProducts();
+			});
+
+			hideDoneProductsElement.addEventListener("click", () => {
+				toggleHideDoneProducts();
+			});
+		}
 	};
 
 	const onFormSubmit = (event) => {
