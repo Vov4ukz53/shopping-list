@@ -130,14 +130,12 @@
 		const newProduct = document.querySelector(".js-newProduct").value.trim();
 		const inputField = document.querySelector(".js-newProduct");
 
-		inputField.focus();
-
-		if (newProduct === "") {
-			return
+		if (newProduct !== "") {
+			addNewProduct(newProduct);
+			inputField.value = "";
 		}
 
-		addNewProduct(newProduct);
-		inputField.value = "";
+		inputField.focus();
 	};
 
 	const init = () => {
