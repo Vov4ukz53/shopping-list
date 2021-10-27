@@ -21,12 +21,15 @@
 	};
 
 	const toggleDoneProduct = (index) => {
-		products = [
-			...products.slice(0, index),
-			{ ...products[index], done: !products[index].done },
-			...products.slice(index + 1),
-		];
-
+		products = products.map((product, productIndex) => {
+			if (productIndex !== index) {
+				return product;
+			}
+			return {
+				...product,
+				done: !product.done,
+			};
+		});
 		render();
 	};
 
@@ -41,8 +44,8 @@
 	};
 
 	const renderProducts = () => {
-		
-		const productToHTML = product =>  `
+
+		const productToHTML = product => `
 			<li class="shoppingList__item${product.done && hideDoneProducts
 				? " shoppingList__item--hidden"
 				: ""}">
@@ -58,7 +61,7 @@
 			<button class="shoppingList__itemButton shoppingList__itemButton--delete js-remove"></button>
 			</li>
 		`;
-		
+
 		const productsElement = document.querySelector(".js-products");
 		productsElement.innerHTML = products.map(productToHTML).join("");
 	};
