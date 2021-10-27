@@ -41,28 +41,26 @@
 	};
 
 	const renderProducts = () => {
-		let htmlString = "";
-
-		for (const product of products) {
-			htmlString += `
-            <li class="shoppingList__item${product.done && hideDoneProducts
-					? " shoppingList__item--hidden"
-					: ""}">
-            <button class="shoppingList__itemButton js-buttonMark${product.done
-					? " shoppingList__itemButton--done"
-					: ""}">
-				</button>
-				<span class="shoppingList__itemContent${product.done
-					? " shoppingList__itemContent--done"
-					: ""}"">
-				${product.content}
-				</span>
-            <button class="shoppingList__itemButton shoppingList__itemButton--delete js-remove"></button>
-            </li>
-			`;
-		};
-
-		document.querySelector(".js-products").innerHTML = htmlString;
+		
+		const productToHTML = product =>  `
+			<li class="shoppingList__item${product.done && hideDoneProducts
+				? " shoppingList__item--hidden"
+				: ""}">
+			<button class="shoppingList__itemButton js-buttonMark${product.done
+				? " shoppingList__itemButton--done"
+				: ""}">
+			</button>
+			<span class="shoppingList__itemContent${product.done
+				? " shoppingList__itemContent--done"
+				: ""}"">
+			${product.content}
+			</span>
+			<button class="shoppingList__itemButton shoppingList__itemButton--delete js-remove"></button>
+			</li>
+		`;
+		
+		const productsElement = document.querySelector(".js-products");
+		productsElement.innerHTML = products.map(productToHTML).join("");
 	};
 
 	const renderButtons = () => {
